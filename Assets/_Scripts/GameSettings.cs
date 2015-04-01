@@ -3,18 +3,27 @@ using System.Collections;
 
 public class GameSettings : MonoBehaviour
 {
+	GameObject rotator;
 	private int aktPlayer;
-    PlayerStats[] player = new PlayerStats[4];
+    PlayerStats[] player;
 
     void Awake()
     {
         DontDestroyOnLoad(this);
-		aktPlayer = 0;
+        rotator = GameObject.FindGameObjectWithTag("Rotator");
+
+        //RotatorLogicScript RotatorScript = rotator.GetComponent<RotatorLogicScript>();
+        //aktPlayer = RotatorScript.GetPedestalPosition();
     }
 
-    public void SaveCharacterData()
+    void Start()
+    { 
+        player = new PlayerStats[rotator.GetComponent<RotatorLogicScript>().GetNumberOfPedestals()];
+    }
+
+    public void SaveCharacterData( string objectName )
     {
-        GameObject pc = GameObject.Find("pc");
+        GameObject pc = GameObject.Find(objectName);
         PlayerStats pcClass = pc.GetComponent<PlayerStats>();
 
         PlayerPrefs.SetString("PLAYERNAME", pcClass.Name);
@@ -24,13 +33,15 @@ public class GameSettings : MonoBehaviour
 
     public void LoadCharacterData()
     {
-        GameObject pc = GameObject.Find("pc");
-        PlayerStats pcClass = pc.GetComponent<PlayerStats>();
+        GameObject[] pc = GameObject.FindGameObjectsWithTag("PlayerCharacter");
+        if( pc == null ) return;
+        for( int i=0 ; i < rotator.GetComponent<RotatorLogicScript>().GetNumberOfPedestals() ; i++ )
+        {
+            player[i] = pc[i].GetComponent<PlayerStats>();
 
-        pcClass.Name = PlayerPrefs.GetString("PLAYERNAME", "No Name");
-        pcClass.Gender = PlayerPrefs.GetInt("GENDER", 0);
-        pcClass.Class = PlayerPrefs.GetInt("CLASS", 0);
-
+            player[i].Name = PlayerPrefs.GetString("PLAYERNAME", "No Name");
+            player[i].Gender = PlayerPrefs.GetInt("GENDER", 0);
+            player[i].Class = PlayerPrefs.GetInt("CLASS", 0);
+        }
     }
-
 }
