@@ -62,7 +62,7 @@ public class PlayerMotor : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		if (networkView.isMine || Network.peerType == NetworkPeerType.Disconnected)
+		if (GetComponent<NetworkView>().isMine || Network.peerType == NetworkPeerType.Disconnected)
 		{
 			// Cache references to child components of this gameObject
 			_myXform = this.GetComponent<Transform>();

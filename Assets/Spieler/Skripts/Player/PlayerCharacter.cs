@@ -54,9 +54,9 @@ public class PlayerCharacter : MonoBehaviour
 	// Use this for initialization
 	private void Start () 
 	{
-		if(networkView!=null)
+		if(GetComponent<NetworkView>()!=null)
 		{
-			if (networkView.isMine || Network.peerType == NetworkPeerType.Disconnected)
+			if (GetComponent<NetworkView>().isMine || Network.peerType == NetworkPeerType.Disconnected)
 			{
 				_animatorController = Resources.Load (Resource.AnimatorController) as RuntimeAnimatorController;
 				_animator.runtimeAnimatorController = _animatorController;

@@ -46,7 +46,7 @@ public class PlayerCamera : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		if (networkView.isMine || Network.peerType == NetworkPeerType.Disconnected)
+		if (GetComponent<NetworkView>().isMine || Network.peerType == NetworkPeerType.Disconnected)
 		{
 			_pc = this.GetComponent<PlayerCharacter>();
 			
