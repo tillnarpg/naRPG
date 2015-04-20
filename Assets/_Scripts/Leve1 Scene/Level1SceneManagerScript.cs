@@ -4,9 +4,11 @@ using System.Collections;
 public class Level1SceneManagerScript : MonoBehaviour {
 
     public GameObject gameMenu;
+    public GameObject uDeadMenu;
     public GameObject gameController;
     public GameObject exitConfirmation;
     public GameObject exitToMenuConfirmation;
+    
     
     
     GameObject gameCharacter;
@@ -83,4 +85,18 @@ public class Level1SceneManagerScript : MonoBehaviour {
         menuScript.SetScriptsOn();
     }
 //************************************************************************//
+    
+    private void PlayerDeathMenu()
+    {
+         uDeadMenu.SetActive(true);
+         Time.timeScale = 0.0f;
+         menuScript.SetScriptsOff();
+    }
+    
+    public void PlayerDie()
+    {
+        // do something!
+        gameMenuPauseOff();
+        PlayerDeathMenu();
+    }
 }

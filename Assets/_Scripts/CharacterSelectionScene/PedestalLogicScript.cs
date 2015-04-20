@@ -115,7 +115,7 @@ public class PedestalLogicScript : MonoBehaviour {
     }
 
 //***************************************************************************//
-    public void turnCharacter( int turnForce ) // Totally wrong approach! Change it in the future!
+    public void TurnCharacter( int turnForce ) // Totally wrong approach! Change it in the future!
     { 
         if(!myActive) return;
         if(!characterOnPedestal) return;

@@ -40,16 +40,11 @@ public class RotatorLogicScript : MonoBehaviour {
 	{
 		anim = gameObject.GetComponent<Animator>();
 		anim.SetInteger ("Position", position);   // used for rotation with left and right ( 'a' ,'d' ) keys
+        anim.SetFloat("Direction", 0.0f);
+
 
         pedestalScript = this.gameObject.GetComponentsInChildren<PedestalLogicScript>();
         changeActive();
-
-        //Debug.Log("Up" + Vector3.up);
-        //Debug.Log("down" + Vector3.down);
-        //Debug.Log("left" + Vector3.left);
-        //Debug.Log("right" + Vector3.right);
-        //Debug.Log("back" + Vector3.back);
-        //Debug.Log("forward" + Vector3.forward);
 	}
 
 
@@ -59,6 +54,7 @@ public class RotatorLogicScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+
         // Blocks changes to pedestals when another panel is active!
         if (!characterCreationUI.activeInHierarchy && !loadingImage.activeInHierarchy && !warningImage.activeInHierarchy && !exitConfirmation.activeInHierarchy && !deleteConfirmation.activeInHierarchy) 
         { 
@@ -106,7 +102,7 @@ public class RotatorLogicScript : MonoBehaviour {
 
 	}
 
-	void SelectedCharacter1()   // Event called either by clicking on the pedestal or by animation controller
+	public void SelectedCharacter1()   // Event called either by clicking on the pedestal or by animation controller
 	{
 		position = 1;
 		LightsControl ( position );
@@ -116,7 +112,7 @@ public class RotatorLogicScript : MonoBehaviour {
         changeActive();
 	}
 
-    void SelectedCharacter2() // Event called either by clicking on the pedestal or by animation controller
+    public void SelectedCharacter2() // Event called either by clicking on the pedestal or by animation controller
 	{
 		position = 2;
 		LightsControl ( position );
@@ -126,7 +122,7 @@ public class RotatorLogicScript : MonoBehaviour {
         changeActive();
 	}
 
-    void SelectedCharacter3()  // Event called either by clicking on the pedestal or by animation controller
+    public void SelectedCharacter3()  // Event called either by clicking on the pedestal or by animation controller
 	{
 		position = 3;
 		LightsControl ( position );
@@ -136,7 +132,7 @@ public class RotatorLogicScript : MonoBehaviour {
         changeActive();
 	}
 
-    void SelectedCharacter4() // Event called either by clicking on the pedestal or by animation controller
+    public void SelectedCharacter4() // Event called either by clicking on the pedestal or by animation controller
 	{
 		position = 4;
 		LightsControl ( position );
@@ -216,11 +212,12 @@ public class RotatorLogicScript : MonoBehaviour {
 		string pedestalName = "_Pedestal"; // Getting the Pedestal name for 
 		pedestalName += position;  
 
-		// Debug.Log ("CreateCharacter: PedestalName is " + pedestalName);
+		Debug.Log ("CreateCharacter: PedestalName is " + pedestalName);
 
 		GameObject pedestal = GameObject.Find (pedestalName);
 
 		PedestalLogicScript spawnerScript = pedestal.GetComponent<PedestalLogicScript>();
+        Debug.Log("this spawnerscript" + spawnerScript.name);
 		spawnerScript.SpawnCharacter( position );
 	}
 
@@ -299,7 +296,7 @@ public class RotatorLogicScript : MonoBehaviour {
     {
         for (int i = 0; i < numberOfPedestals; i++)
         {
-            pedestalScript[i].turnCharacter(-1);
+            pedestalScript[i].TurnCharacter(-1);
         }
     }
 
@@ -308,7 +305,7 @@ public class RotatorLogicScript : MonoBehaviour {
     {
         for (int i = 0; i < numberOfPedestals; i++)
         {
-            pedestalScript[i].turnCharacter(1);
+            pedestalScript[i].TurnCharacter(1);
         }
     }
 
