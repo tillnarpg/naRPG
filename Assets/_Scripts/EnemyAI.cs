@@ -11,13 +11,13 @@ public class EnemyAI : MonoBehaviour {
 	private Transform myTransform;
 
 	void OnTriggerEnter(Collider other){
-		if (other.tag == "GameController") 
+		if (other.tag == "Player") 
 		{
 				TriggerEnter = true;
 		}
 	}
 	void OnTriggerExit(Collider other){
-		if (other.tag == "GameController") {
+		if (other.tag == "Player") {
 			TriggerEnter = false;
 		}
 	}
@@ -27,7 +27,7 @@ public class EnemyAI : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-		GameObject go = GameObject.FindGameObjectWithTag ("GameController");
+		GameObject go = GameObject.FindGameObjectWithTag ("Player");
 
 			target = go.transform;
 	}
