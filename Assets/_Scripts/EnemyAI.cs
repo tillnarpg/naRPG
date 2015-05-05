@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour {
 	public int rotationSpeed;
 	bool TriggerEnter = false;
 
+	public static int EnemyLeben = 50;
 
 	private Transform myTransform;
 
@@ -31,10 +32,25 @@ public class EnemyAI : MonoBehaviour {
 
 			target = go.transform;
 	}
-	
+	void OnGUI()
+	{
+		if (TriggerEnter) {
+			string LebenText = "Enemy Lifepoints " + EnemyLeben;
+			GUI.Box (new Rect (20, 75, 150, 30), LebenText);
+
+			string AttackText = "Press F to attack";
+			GUI.Box(new Rect(200, 20, 130, 30),AttackText);
+		}
+
+	}
+
 	// Update is called once per frame
 	void Update () {
-		if (TriggerEnter==true) {		
+		if (EnemyLeben <= 0) {
+			Destroy (this.gameObject);
+		}
+		if (TriggerEnter==true) {
+
 			Debug.DrawLine (target.position, myTransform.position, Color.yellow);
 
 			//Look at target
@@ -44,29 +60,6 @@ public class EnemyAI : MonoBehaviour {
 			myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
 		}
 	}
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

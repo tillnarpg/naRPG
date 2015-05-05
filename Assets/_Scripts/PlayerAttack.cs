@@ -17,6 +17,13 @@ public class PlayerAttack : MonoBehaviour {
 	}
 
 	private void Attack(){
-		EnemyLife.EnemyLeben = EnemyLife.EnemyLeben - 10;
+		//if (target != null) {
+			float distance = Vector3.Distance (target.transform.position, transform.position);
+
+			Debug.Log (distance);
+			if (distance < 2) {
+				EnemyAI.EnemyLeben = EnemyAI.EnemyLeben - 10;
+			}
+		//}
 	}
 }

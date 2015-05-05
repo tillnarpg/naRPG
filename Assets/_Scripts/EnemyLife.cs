@@ -7,8 +7,9 @@ public class EnemyLife : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		string LebenText = "Enemy Lifepoints " + EnemyLeben;
-		GUI.Box(new Rect(20,75, 150, 30),LebenText);
+			string LebenText = "Enemy Lifepoints " + EnemyLeben;
+			GUI.Box (new Rect (20, 75, 150, 30), LebenText);
+
 	}
 
 	void Update () {
