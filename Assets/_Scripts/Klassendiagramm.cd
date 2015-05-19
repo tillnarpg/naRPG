@@ -45,7 +45,7 @@
   <Class Name="Level1SceneManagerScript">
     <Position X="19" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAwgAAAAACAAEAAQAAMAABAIAAAAAAAAAAAgQAAAANA=</HashCode>
+      <HashCode>AAwgAAAAACAAEAAAAAEAABAIAAAAAAAAAAAgQAAAANA=</HashCode>
       <FileName>Assets\_Scripts\Leve1 Scene\Level1SceneManagerScript.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -132,6 +132,36 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAACAAAAAAAA=</HashCode>
       <FileName>Assets\_Scripts\LifeorbController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IState">
+    <Position X="20.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Leve1 Scene\IState.cs</FileName>
+      <NewMemberFileName>Assets\_Scripts\Leve1 Scene\Level1SceneManagerScript.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Running">
+    <Position X="22.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Leve1 Scene\IState.cs</FileName>
+      <NewMemberFileName>Assets\_Scripts\Leve1 Scene\Level1SceneManagerScript.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Paused">
+    <Position X="20.75" Y="3.25" Width="1.5" />
+    <InheritanceLine Type="IState" ManuallyRouted="true">
+      <Path>
+        <Point X="21.5" Y="2.103" />
+        <Point X="21.5" Y="3.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Leve1 Scene\IState.cs</FileName>
+      <NewMemberFileName>Assets\_Scripts\Leve1 Scene\Level1SceneManagerScript.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

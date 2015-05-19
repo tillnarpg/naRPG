@@ -1,19 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum State { running, paused }
+
 public class Level1SceneManagerScript : MonoBehaviour {
 
     public GameObject gameMenu;
     public GameObject uDeadMenu;
-    public GameObject gameController;
+    //public GameObject gameController;
     public GameObject exitConfirmation;
     public GameObject exitToMenuConfirmation;
-    
-    
+
+
+    public IState gameState;
+   
     
     GameObject gameCharacter;
 
-    MenuActiveScript menuScript;
+    public MenuActiveScript menuScript;
 
 
 //************************************************************************//
@@ -24,9 +28,11 @@ public class Level1SceneManagerScript : MonoBehaviour {
         if(!gameCharacter) return;
         gameCharacter.GetComponent<Collider>().enabled = false;
 
-        gameCharacter.transform.position = gameController.transform.position;
-        gameCharacter.transform.rotation = gameController.transform.rotation;
-        gameCharacter.transform.parent = gameController.transform;
+        //gameCharacter.transform.position = gameController.transform.position;
+        //gameCharacter.transform.rotation = gameController.transform.rotation;
+        //gameCharacter.transform.parent = gameController.transform;
+
+        gameState = new Running();
     }
 
 //************************************************************************//    
@@ -39,18 +45,10 @@ public class Level1SceneManagerScript : MonoBehaviour {
 //************************************************************************//
 //************************************************************************//
 
-    void Update()
-    { 
-        if (Input.GetKeyUp("escape") )
-        {
-            if( gameMenu.activeInHierarchy == false )
-            {
-                gameMenuPauseOn();
-            }
-            else if (gameMenu.activeInHierarchy == true && exitConfirmation.activeInHierarchy == false && exitToMenuConfirmation.activeInHierarchy == false)
-            {
-                gameMenuPauseOff();
-            }
+    void Update() { 
+        if (Input.GetKeyUp("escape") ) {
+            Debug.Log("Got ESC Key");
+            gameState.changeMenuState(this);
         }
     }
 
@@ -69,21 +67,25 @@ public class Level1SceneManagerScript : MonoBehaviour {
         exitToMenuConfirmation.SetActive(true);
     }
 //************************************************************************//
-    private void gameMenuPauseOn()
+    /*
+    private void changeMenuState()
     {
-        //Debug.Log("Escape sets true");
-        gameMenu.SetActive(true);
-        Time.timeScale = 0.0f;
-        menuScript.SetScriptsOff();
-    }
+        switch (gameState) {
+            case State.paused:
+                gameMenu.SetActive(true);
+                Time.timeScale = 0.0f;
+                menuScript.SetScriptsOff();
+                break;
+            case State.running:
+                gameMenu.SetActive(false);
+                Time.timeScale = 1.0f;
+                menuScript.SetScriptsOn();
+                break;
+            default:
+                break;
+        }
+    }*/
 
-    public void gameMenuPauseOff()
-    {
-        //Debug.Log("Escape sets false");
-        gameMenu.SetActive(false);
-        Time.timeScale = 1.0f;
-        menuScript.SetScriptsOn();
-    }
 //************************************************************************//
     
     private void PlayerDeathMenu()
@@ -96,7 +98,11 @@ public class Level1SceneManagerScript : MonoBehaviour {
     public void PlayerDie()
     {
         // do something!
-        gameMenuPauseOff();
+        //setgameState(State.paused);
+        //changeMenuState();
+        gameState.changeMenuState(this);
         PlayerDeathMenu();
     }
 }
+
+
