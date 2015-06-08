@@ -50,9 +50,6 @@ public class PedestalLogicScript : MonoBehaviour {
 
 			// No character on the pedestal it's safe to create a new character!
 
-            // The following 2 lines of code are probably completely useless, because CharacterSpawner on top on Pedestal Object has the GameMasterScript attached.
-            //characterOnPedestal = GameObject.Instantiate(gameMaster , characterSpawner.transform.position, Quaternion.identity) as GameObject;
-            //characterOnPedestal.transform.parent = transform;
 		}
 	}
 
@@ -60,8 +57,7 @@ public class PedestalLogicScript : MonoBehaviour {
 	public void DeleteCharacter()
 	{
         if( !myActive) return;
-		// characterOnPedestal = GameObject.Find (myName + "/CharacterSpawner/pc"); // looking if there is a player class already in the scene. 
-
+		
 		Debug.Log ("PedestalLogicScript: I'm in DeleteChar!");
 
 		if (characterOnPedestal) 
@@ -74,7 +70,6 @@ public class PedestalLogicScript : MonoBehaviour {
 //***************************************************************************//
     public void SetPedestalActive( int positionNumber )
     { 
-        // Debug.Log("My number " +myNumber + " positionNumber " + positionNumber + " myActive " + myActive );
         if( myNumber == positionNumber ) 
         {
             myActive = true;

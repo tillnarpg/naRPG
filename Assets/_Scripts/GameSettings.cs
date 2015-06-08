@@ -11,9 +11,6 @@ public class GameSettings : MonoBehaviour
     {
         DontDestroyOnLoad(this);
         rotator = GameObject.FindGameObjectWithTag("Rotator");
-
-        //RotatorLogicScript RotatorScript = rotator.GetComponent<RotatorLogicScript>();
-        //aktPlayer = RotatorScript.GetPedestalPosition();
     }
 
     void Start()

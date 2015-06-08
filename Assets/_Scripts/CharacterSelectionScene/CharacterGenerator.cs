@@ -41,10 +41,6 @@ public class CharacterGenerator : MonoBehaviour
         gsScript = gs.GetComponent<GameSettings>();
         rotatorScript = rotator.GetComponent<RotatorLogicScript>();
         pedestalScript = rotator.GetComponentsInChildren<PedestalLogicScript>();
-		
-        //anim = this.GetComponent<Animator> ();
-
-		//anim.SetBool ("Active",true);
     }
 
     // Update is called once per frame
@@ -71,11 +67,6 @@ public class CharacterGenerator : MonoBehaviour
         pc.GetComponent<DontDestroyScript>().enabled = false; // sets the don't destroy script on false.
         _player = pc.GetComponent<PlayerStats>();
 
-
-        // _player = gameObject.AddComponent("PlayerCharacter") as PlayerCharacter;
-        //_player = new PlayerCharacter ();
-        //Instantiate(_player);
-
         _player.Awake();
         _player.Name = nameInputField.text;
         _player.Gender = (int)genderSlider.value;
@@ -100,7 +91,6 @@ public class CharacterGenerator : MonoBehaviour
 
 	public void GoBack()
 	{
-		// anim.SetBool ("Active",false);
 		this.gameObject.SetActive (false);
 	}
 

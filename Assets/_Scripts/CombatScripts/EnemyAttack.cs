@@ -42,8 +42,6 @@ public class EnemyAttack : MonoBehaviour {
             if (direction > 0)
             {
 				LifeorbController.PlayerLeben = LifeorbController.PlayerLeben -10;
-               // PlayerHealth eh = (PlayerHealth)target.GetComponent("PlayerHealth");
-               // eh.AddjustCurrentHealth(-10);
             }
 
         }

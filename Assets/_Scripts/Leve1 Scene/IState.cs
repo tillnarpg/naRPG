@@ -4,11 +4,6 @@ using System.Collections;
 public abstract class IState
 {
     public abstract void changeMenuState(Level1SceneManagerScript scene);
-
-    /*internal void changeMenuState(Level1SceneManagerScript level1SceneManagerScript)
-    {
-        throw new System.NotImplementedException();
-    }*/
 }
 
 class Running : IState
@@ -17,7 +12,6 @@ class Running : IState
     {
         scene.gameMenu.SetActive(true);
         Time.timeScale = 0.0f;
-        //scene.menuScript.SetScriptsOff();
         scene.gameState = new Paused();
     }
 }
@@ -28,7 +22,6 @@ class Paused : IState
     {
         scene.gameMenu.SetActive(false);
         Time.timeScale = 1.0f;
-        //scene.menuScript.SetScriptsOn();
         scene.gameState = new Running();
     }
 

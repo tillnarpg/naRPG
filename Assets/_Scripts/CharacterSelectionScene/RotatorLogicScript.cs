@@ -96,7 +96,6 @@ public class RotatorLogicScript : MonoBehaviour {
 	{
 		position = 0;   
 		LightsControl ( position );
-//		GameMasterControl (position);
 		anim.SetInteger("Position", position);
 		Debug.Log("Selected Nothing ");
 
@@ -106,7 +105,6 @@ public class RotatorLogicScript : MonoBehaviour {
 	{
 		position = 1;
 		LightsControl ( position );
-//		GameMasterControl (position);
 		anim.SetInteger("Position", position);
 		Debug.Log("Selected Pedestal 1 ");
         changeActive();
@@ -116,7 +114,6 @@ public class RotatorLogicScript : MonoBehaviour {
 	{
 		position = 2;
 		LightsControl ( position );
-//		GameMasterControl (position);
 		anim.SetInteger("Position", position);
 		Debug.Log("Selected Pedestal 2 ");
         changeActive();
@@ -126,7 +123,6 @@ public class RotatorLogicScript : MonoBehaviour {
 	{
 		position = 3;
 		LightsControl ( position );
-//		GameMasterControl (position);
 		anim.SetInteger("Position", position);
 		Debug.Log("Selected Pedestal 3 ");
         changeActive();
@@ -136,7 +132,6 @@ public class RotatorLogicScript : MonoBehaviour {
 	{
 		position = 4;
 		LightsControl ( position );
-//		GameMasterControl (position);
 		anim.SetInteger("Position", position);
 		Debug.Log("Selected Pedestal 4 ");
         changeActive();
@@ -161,47 +156,15 @@ public class RotatorLogicScript : MonoBehaviour {
 				if(   i == spotlightNumber ) 
 				{
 					spotlights[i-1].enabled = true;
-					//Debug.Log("Light " + i + " was enabled");
 				}
 				else 
 				{
 					spotlights[i-1].enabled = false;
-					//Debug.Log("Light " + i + " was disabled!");
 				}
 
 			}
 		}
 	}
-
-//***************************************************************************//
-
-//	void GameMasterControl( int gameMasterNumber )
-//	{
-//		
-//		if (gameMasterNumber == 0) 
-//		{
-//			for (int i = 0 ; i < gameMasters.Length ; i++)
-//				gameMasters[i].enabled = false;
-//		}
-//		
-//		if (gameMasterNumber > 0) 
-//		{
-//			for ( int i = 1 ; i <= gameMasters.Length ; i++)
-//			{
-//				if(   i == gameMasterNumber ) 
-//				{
-//					gameMasters[i-1].enabled = true;
-//					//Debug.Log("GameMaster " + i + " was enabled");
-//				}
-//				else 
-//				{
-//					gameMasters[i-1].enabled = false;
-//					//Debug.Log("GameMaster " + i + " was disabled!");
-//				}
-//				
-//			}
-//		}
-//	}
 
 //***************************************************************************//
 //***************************************************************************//
@@ -225,8 +188,7 @@ public class RotatorLogicScript : MonoBehaviour {
 
 	public void DeleteCharacter()
 	{
-		// Debug.Log ("DeleteCharacter: PedestalName is " + pedestalName);
-
+		
         string findThis = gameObject.name + "_Pedestal" + position + "/pc" + position;
 
         if( !GameObject.Find(findThis) ) return;
@@ -254,13 +216,11 @@ public class RotatorLogicScript : MonoBehaviour {
 
 	public void ExitGame()
 	{
-		// Debug.Log("Exiting Game!");
 		exitConfirmation.SetActive(true);
 	}
 
     public void ExitToMenu()
     {
-        // Debug.Log("Exiting Game!");
         exitToMenuConfirmation.SetActive(true);
     }
 

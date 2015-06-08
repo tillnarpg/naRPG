@@ -12,16 +12,12 @@ public class MenuActiveScript : MonoBehaviour {
     
     public void SetScriptsOff()
     { 
-        //gameObject.GetComponent<MouseLook>().enabled = false;
-        //gameObject.GetComponentInChildren<MouseLook>().enabled = false;
         cameraComponent.enabled = false;
         playerComponent.enabled = false;
     }
 
     public void SetScriptsOn()
     {
-        //gameObject.GetComponent<FPSInputController>().enabled = true;
-        //gameObject.GetComponentInChildren<MouseLook>().enabled = true;
         cameraComponent.enabled = true;
         playerComponent.enabled = true;
     }
