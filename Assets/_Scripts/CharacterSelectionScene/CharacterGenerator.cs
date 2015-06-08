@@ -46,7 +46,7 @@ public class CharacterGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // Nothing to do for every Frame...
     }
 
     public void CreateCharacter()  // Called by CREATE button in the Character Creation Panel.
@@ -96,11 +96,11 @@ public class CharacterGenerator : MonoBehaviour
 
     private void CreateWarrior()
     {
-
+        // For further implementations 
     }
 
     private void CreateMage()
     {
-
+        // For further implementations 
     }
 }

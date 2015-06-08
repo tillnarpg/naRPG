@@ -21,7 +21,6 @@ public class RotatorLogicScript : MonoBehaviour {
 
 
     const int numberOfPedestals = 4;
-//  public GameMaster[] gameMasters;	
 
 
 //***************************************************************************//
@@ -31,7 +30,6 @@ public class RotatorLogicScript : MonoBehaviour {
 	{
         Time.timeScale = 1.0f; // Resets the timeScale in the condition that we would get back to this menu after exiting to Main Menu.
 		LightsControl ( position );
-		// GameMasterControl ( position );
 	}
 
 //***************************************************************************//
@@ -56,39 +54,45 @@ public class RotatorLogicScript : MonoBehaviour {
 	{
 
         // Blocks changes to pedestals when another panel is active!
-        if (!characterCreationUI.activeInHierarchy && !loadingImage.activeInHierarchy && !warningImage.activeInHierarchy && !exitConfirmation.activeInHierarchy && !deleteConfirmation.activeInHierarchy) 
-        { 
-            // KEY SELECTION!
-		    direction = Input.GetAxis("Horizontal");
-        	anim.SetFloat ("Direction", direction);
-
-            // MOUSE SELECTION 
-		    if (Input.GetMouseButtonDown(0)) 
-		    {
-			    RaycastHit hit;
-			    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-			    if (Physics.Raycast(ray, out hit))
-			    {
-                    if (hit.collider.name == "_Pedestal1" || hit.collider.name == "pc1")
-					    SelectedCharacter1();
-
-
-                    if (hit.collider.name == "_Pedestal2" || hit.collider.name == "pc2")
-					    SelectedCharacter2();
-
-
-                    if (hit.collider.name == "_Pedestal3" || hit.collider.name == "pc3")
-					    SelectedCharacter3();
-
-
-                    if (hit.collider.name == "_Pedestal4" || hit.collider.name == "pc4")
-					    SelectedCharacter4();
-					
-			    }
-		    }
+        bool ready = (!characterCreationUI.activeInHierarchy && !loadingImage.activeInHierarchy && !warningImage.activeInHierarchy && !exitConfirmation.activeInHierarchy && !deleteConfirmation.activeInHierarchy);
+        if (ready) 
+        {
+            HandleSelectionInput();
         }
 	}
+
+    private void HandleSelectionInput()
+    {
+        // KEY SELECTION!
+        direction = Input.GetAxis("Horizontal");
+        anim.SetFloat("Direction", direction);
+
+        // MOUSE SELECTION 
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.name == "_Pedestal1" || hit.collider.name == "pc1")
+                    SelectedCharacter1();
+
+
+                if (hit.collider.name == "_Pedestal2" || hit.collider.name == "pc2")
+                    SelectedCharacter2();
+
+
+                if (hit.collider.name == "_Pedestal3" || hit.collider.name == "pc3")
+                    SelectedCharacter3();
+
+
+                if (hit.collider.name == "_Pedestal4" || hit.collider.name == "pc4")
+                    SelectedCharacter4();
+
+            }
+        }
+    }
 //***************************************************************************//
 //***************************************************************************//
 
