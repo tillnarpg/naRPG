@@ -14,7 +14,7 @@ public class SceneManagerScript : MonoBehaviour {
     public void StartButtonPressed()
     { 
         loadingImage.SetActive(true);
-        Application.LoadLevel(1);
+        UnityEngine.Application.LoadLevel(1);
     }
 
 }

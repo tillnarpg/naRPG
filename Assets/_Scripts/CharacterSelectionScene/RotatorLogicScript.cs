@@ -63,10 +63,12 @@ public class RotatorLogicScript : MonoBehaviour {
 
     private void HandleSelectionInput()
     {
-        // KEY SELECTION!
-        direction = Input.GetAxis("Horizontal");
-        anim.SetFloat("Direction", direction);
+        KeyInput();
+        MouseInput();
+    }
 
+    private void MouseInput()
+    {
         // MOUSE SELECTION 
         if (Input.GetMouseButtonDown(0))
         {
@@ -92,6 +94,13 @@ public class RotatorLogicScript : MonoBehaviour {
 
             }
         }
+    }
+
+    private void KeyInput()
+    {
+        // KEY SELECTION!
+        direction = Input.GetAxis("Horizontal");
+        anim.SetFloat("Direction", direction);
     }
 //***************************************************************************//
 //***************************************************************************//
