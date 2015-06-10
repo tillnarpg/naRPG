@@ -6,7 +6,7 @@ using System;
 public class CharacterGenerator : MonoBehaviour
 {
     private PlayerStats _player;
-	//Animator anim;
+	
 
     public int maxNameLength = 20; // Maximal length of a character length.
     

@@ -13,6 +13,9 @@ public class ItemCollect : MonoBehaviour {
                 Destroy(this.gameObject);
 
                 break;
+            default:
+                //DoNothing
+                break;
         }
     }
 
