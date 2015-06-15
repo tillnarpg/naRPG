@@ -19,8 +19,9 @@ public class PlayerAttack : MonoBehaviour {
         if (attackTimer < 0)
             attackTimer = 0;
 
-        if (Input.GetKeyUp(KeyCode.F))
-        {
+       // if (Input.GetKeyUp(KeyCode.F))
+		if(Input.GetMouseButtonDown(0))   //0=Leftclick 1=Rightclick
+         {
             if (attackTimer == 0)
             {
                 Attack();

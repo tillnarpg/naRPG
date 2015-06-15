@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour {
 		EnemyAI eai = (EnemyAI)transform.GetComponent("EnemyAI");
 		if (eai.PlayerInRange) {
 
-			GUI.Box (new Rect (Screen.width/2, Screen.height/2, 150, 20), "Press F to hit Enemy");
+			GUI.Box (new Rect (Screen.width/2, Screen.height/2, 150, 40), "Press Left Mousebutton \n to hit Enemy");
 		
 			GUI.Box (new Rect (180, 20, healthBarLength, 20), curHealth + "/" + maxHealth);
 		}

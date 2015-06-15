@@ -41,25 +41,24 @@ public class Targetting : MonoBehaviour {
     {
 		if (targets.Count > 0) {
 
-			if (selectedTarget == null) {
+			//if (selectedTarget == null) {
 				AddAllEnemies ();
 				SortTargetsByDistance ();
 				selectedTarget = targets [0];
-			} else {
-				int index = targets.IndexOf (selectedTarget);
-
-				if (index < targets.Count - 1) {
-					index++;
-				} else {
-					index = 0;
-				}
-				DeselectTarget ();
-				selectedTarget = targets [index];
-			}		
+//			} else {
+//				int index = targets.IndexOf (selectedTarget);
+//				if (index < targets.Count - 1) {
+//					index++;
+//				} else {
+//					index = 0;
+//				}
+//				DeselectTarget ();
+//				selectedTarget = targets [index];
+//			}		
+			SelectTarget ();
 		} else {
 			selectedTarget=null;
 		}
-		SelectTarget ();
     }
 
     private void SelectTarget()
@@ -77,10 +76,7 @@ public class Targetting : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            TargetEnemy();
-        }
+        TargetEnemy();
 	}
 
 }
