@@ -9,9 +9,4 @@ public class WelcomeScreenTestScript1 : MonoBehaviour {
 	    GameObject go = GameObject.FindGameObjectWithTag("TestedObject");
         go.GetComponent<ExitConfirmationScript>().noButtonPressed();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

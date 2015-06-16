@@ -30,6 +30,10 @@ public class CharacterGenerator : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if ( rotator == null )
+        { 
+            Debug.Log("You forgot to set the rotator prefab");
+        }
         //Connect to the GameSettings Object and create it from Prefab if there is no GameSettings-GO.
         gs = GameObject.FindGameObjectWithTag("GameSettings");  // PROBABLY USELESS! As the object will always be there.
         if (!gs)

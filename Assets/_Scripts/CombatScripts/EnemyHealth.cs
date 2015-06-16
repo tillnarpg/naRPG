@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyHealth : MonoBehaviour {
+public class EnemyHealth : MonoBehaviour 
+{
+
 	public int maxHealth=100;
 	public int curHealth=100;
 
@@ -13,8 +15,9 @@ public class EnemyHealth : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        AddjustCurrentHealth(0);
+	void Update () 
+    {
+        AdjustCurrentHealth(0);
 		EnemyDead ();
 	}
 
@@ -28,7 +31,7 @@ public class EnemyHealth : MonoBehaviour {
 		}
 	}
 
-    public void AddjustCurrentHealth(int adj)
+    public void AdjustCurrentHealth( int adj )
     {
         curHealth += adj;
         
@@ -43,8 +46,10 @@ public class EnemyHealth : MonoBehaviour {
         healthBarLength = (Screen.width / 2) * (curHealth / (float)maxHealth);
     }
 	
-	private void EnemyDead(){
-		if (curHealth == 0 && transform != null) {
+	private void EnemyDead()
+    {
+		if ( curHealth == 0 && transform != null) 
+        {
 			Destroy (this.gameObject);
 		}
 	}

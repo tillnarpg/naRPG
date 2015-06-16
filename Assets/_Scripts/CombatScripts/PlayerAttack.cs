@@ -7,15 +7,18 @@ public class PlayerAttack : MonoBehaviour {
     public float coolDown;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
         attackTimer = 0;
         coolDown = 0.5f;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
         if (attackTimer > 0)
             attackTimer -= Time.deltaTime;
+    
         if (attackTimer < 0)
             attackTimer = 0;
 
@@ -43,7 +46,7 @@ public class PlayerAttack : MonoBehaviour {
             if (direction > 0)
             {
                 EnemyHealth eh = (EnemyHealth)target.GetComponent("EnemyHealth");
-                eh.AddjustCurrentHealth(-10);
+                eh.AdjustCurrentHealth(-10);
             }
             
         }

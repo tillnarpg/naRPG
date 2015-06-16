@@ -16,7 +16,7 @@ public class Level1SceneManagerScript : MonoBehaviour {
     
     GameObject gameCharacter;
 
-    public MenuActiveScript menuScript;
+    // public MenuActiveScript menuScript;
 
 
 //************************************************************************//
@@ -34,14 +34,16 @@ public class Level1SceneManagerScript : MonoBehaviour {
 
 	void Start () 
     {
-        menuScript = gameObject.GetComponent<MenuActiveScript>();
+        // menuScript = gameObject.GetComponent<MenuActiveScript>();
 	}
 
 //************************************************************************//
 //************************************************************************//
 
-    void Update() { 
-        if (Input.GetKeyUp("escape") ) {
+    void Update() 
+    { 
+        if ( Input.GetKeyUp("escape") ) 
+        {
             Debug.Log("Got ESC Key");
             gameState.changeMenuState(this);
         }
@@ -59,18 +61,28 @@ public class Level1SceneManagerScript : MonoBehaviour {
         exitToMenuConfirmation.SetActive(true);
     }
 
+    public void ResumeGame()
+    { 
+        gameState.changeMenuState(this);
+    }
+
 //************************************************************************//
     
     private void PlayerDeathMenu()
     {
-         uDeadMenu.SetActive(true);
          Time.timeScale = 0.0f;
-         menuScript.SetScriptsOff();
+         GameObject player = GameObject.FindGameObjectWithTag( "PlayerTag" );
+         MouseLook[] MouseScript = player.GetComponentsInChildren<MouseLook>( );
+
+         MouseScript[0].enabled = false;
+         MouseScript[1].enabled = false;
+
+         uDeadMenu.SetActive( true );
     }
     
     public void PlayerDie()
     {
-        gameState.changeMenuState(this);
+        // gameState.changeMenuState(this);
         PlayerDeathMenu();
     }
 }

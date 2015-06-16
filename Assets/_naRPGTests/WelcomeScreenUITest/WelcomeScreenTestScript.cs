@@ -7,11 +7,10 @@ public class WelcomeScreenTestScript : MonoBehaviour {
 	void Start () 
     {
 	    GameObject go = GameObject.FindGameObjectWithTag("TestedObject");
+        if (go == null)
+        {
+            Debug.Log( "No object found" );
+        }
         go.GetComponent<SceneManagerScript>().ExitButtonPressed();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }

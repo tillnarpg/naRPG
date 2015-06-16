@@ -7,11 +7,10 @@ public class SpawnEnemies : MonoBehaviour {
     public GameObject enemyPrefab;
 
     public bool maxEnemies = false;
+    public int howManyEnemies = 100;
 
 
     int enemyCount = 0;
-    int playerCount = 0;
-
     
     // Update is called once per frame
 	void Update () 
@@ -19,7 +18,7 @@ public class SpawnEnemies : MonoBehaviour {
         int i = Random.Range(0, spawnerList.Length);
         Vector3 pos = spawnerList[i].transform.position;
 
-        if (enemyCount >= 100) 
+        if ( enemyCount >= howManyEnemies) 
         {
             maxEnemies = true;
         }
